@@ -7,3 +7,13 @@ We implemented a greedy algorithm of going through the nodes and iteratively set
 In terms of optimization, we calculated the optimal score of the graph as if all the nodes were connected and if in the process of recursively running our algorithm, we find a team’s score equaled the optimal score, we would terminate the program and return that team. This sped up our calculations for fully connected graphs. We also chose to first only consider nodes as potential start nodes if they had outgoing edges, which was helpful for sparse graphs.  Starting nodes without outgoing edges can only form a team of one horse, which for the goal of our algorithm can’t form a team that would maximize the total score of the graph. Finally, we included a brute force version of the algorithm for use when the graph is small enough (under 15 nodes). Computationally, this brute force algorithm is expensive, but it yields optimal results because it checks through every possible path and returns the maximum.  If graphs are larger than 15 vertices, we still run our greedy algorithm with the other optimizations instead. 
 
 To run:  >> python horse.py
+
+Input (as outlined in the spec):
+• The first line contains an integer which is the number of vertices |V|
+• The remaining |V| lines are the adjacency matrix, where adj[i][j] = 1 ⇐⇒ (i, j) is an edge. The entries of the matrix are separated by spaces.
+• The diagonal entries of adj[i][j] contain the performance rating of the ith horse, which is an integer in [0,99]
+
+Output (as outlined in the spec):
+Solutions will be contained in a single output file, where the ith line is your solution to the ith instance. Each solution is represented a list of paths, each separated by a semicolon. The path is represented as a sequence of vertices, separated by spaces. For example, if the paths are (1,4,5) and (2,3,6), the output would be 1 4 5; 2 3 6.
+
+To run our algorithm on the final inputs, please adjust the number of inputs and redirect the input to the cs170_final_inputs folder. 
